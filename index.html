@@ -14,22 +14,33 @@
 </head>
 <body>
     <div class="container" style="padding-top: 20px">
-        <div class="row" id="dw">
+        <div class="row" id="app">
             <div class="col-md-6">
-                <p> hallo' {{ nama }} Umurmu {{ umur }}</p>
+                <ul>
+                    <template v-for="book in books">
+                        <li>
+                            <label for="">Nama : </label>
+                            {{ book }}
+                        </li>
+                    </template>
+                </ul>
             </div>
         </div>
     </div>
 ​
     <script type="text/javascript" src="https://unpkg.com/vue@2.5.6/dist/vue.js"></script>
     <script type="text/javascript">
-        new Vue({
-            el: '#dw',
-            data: {
-                nama : 'Sandi Pratama',
-                umur : 9
-            }
-        }); 
+       var vm = new Vue({
+        el: '#app',
+        data: {
+            books : [
+                'C++ High Performance', 
+                'Mastering Linux Security and Hardening', 
+                'Python Programming Blueprints', 
+                'Mastering PostgreSQL 10'
+            ]
+        }
+    })
     </script>
 </body>
 </html>
