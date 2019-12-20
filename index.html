@@ -17,12 +17,17 @@
         <div class="row" id="app">
             <div class="col-md-6">
                 <ul>
+                    <!-- Menggunakan template -->
                     <template v-for="book in books">
                         <li>
-                            <label for="">Nama : </label>
-                            {{ book }}
+                            <h4>{{ book }}</h4>
                         </li>
                     </template>
+                    <hr>
+                    <!-- Menampilkan array menggunakan index -->
+                    <li v-for="(book, key , index) in books">
+                        {{ index + 1 }}. {{ key  }} :  {{ book }}
+                    </li>
                 </ul>
             </div>
         </div>
@@ -33,12 +38,14 @@
        var vm = new Vue({
         el: '#app',
         data: {
-            books : [
-                'C++ High Performance', 
-                'Mastering Linux Security and Hardening', 
-                'Python Programming Blueprints', 
-                'Mastering PostgreSQL 10'
-            ]
+            books : {
+                    id : 99,
+                    title : 'Bahasa C++',
+                    description : 'Memahi Bahasa Pemrogramn dengan C++',
+                    authors : 'Sandi Coding',
+                    publish : 2019,
+                    price : 25000,              
+            } 
         }
     })
     </script>
